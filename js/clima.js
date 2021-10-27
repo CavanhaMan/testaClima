@@ -38,7 +38,8 @@ $.get(api_call, function (data) {
 	c1.innerHTML = cidade;
 	c2.innerHTML = data.latitude;
 	c3.innerHTML = data.longitude;
-	c4.innerHTML = new Date(data.currently.time * 1000).toISOString().slice(0, 19).replace('T', ' ');
+	//c4.innerHTML = new Date(data.currently.time * 1000).toISOString().slice(0, 19).replace('T', ' ');
+	mostraData();
 	c5.innerHTML = data.currently.summary;
 	c6.innerHTML = data.currently.precipIntensity + " milimetros por hora";
 	c7.innerHTML = Math.round(parseFloat(data.currently.precipProbability)) * 100 + "%";
@@ -61,6 +62,31 @@ $.get(api_call, function (data) {
 		var val = Math.floor((num / 22.5) + 0.5);
 		var arr = ["Norte", "Nor-nordeste", "Nordeste", "Les–nordeste", "Leste", "Les–sudeste", "Sudeste", "Sul-sudeste", "Sul", "Sul-sudoeste", "Sudoeste", "Oes-sudoeste", "Oeste", "Oes-noroeste", "Noroeste", "Nor-noroeste"];
 		return arr[(val % 16)];
+	}
+
+	function mostraData(){
+		var date = new Date(data.currently.time * 1000);
+		console.log(date);
+		var dd = (date+' ').split(' ');
+		console.log(dd);
+		const weekday = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sabado"]
+		var dia = weekday[date.getDay()];	console.log(dia+'-feira');
+		var mes;
+		if(dd[1]=='Feb') mes = 'Fevereiro';
+		if(dd[1]=='Mar') mes = 'Março';
+		if(dd[1]=='Apr') mes = 'Abril';
+		if(dd[1]=='May') mes = 'Maio';
+		if(dd[1]=='June') mes = 'Junho';
+		if(dd[1]=='July') mes = 'Julho';
+		if(dd[1]=='Aug') mes = 'Agosto';
+		if(dd[1]=='Sept') mes = 'Setembro';
+		if(dd[1]=='Oct') mes = 'Outubro';
+		if(dd[1]=='Nov') mes = 'Novembro';
+		if(dd[1]=='Dec') mes = 'Dezembro';
+		var pegaData= dia+'-feira, '+dd[2]+' de '+mes+' de '+dd[3]+' - '+dd[4];
+		console.log(pegaData);
+		console.log(dia+'-feira, '+dd[2]+' de '+mes+' de '+dd[3]+' - '+dd[4]);
+		c4.innerHTML = pegaData;
 	}
 
 
