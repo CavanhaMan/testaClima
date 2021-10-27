@@ -1,8 +1,15 @@
-table,td,tr{
+table.tabela, table.tabela tr, table.tabela td {
     border: 1px solid white;
     border-collapse: collapse;
     padding: 5px;
 }
+
+table.tabicon, table.tabicon tr, table.tabicon td {
+    border: 0px;
+    padding-right: 60px;
+    padding-left: 60px;
+}
+
 .wi {font-size: 100px;}
 #figurinha{
     position: absolute;
@@ -29,6 +36,10 @@ ul {
 }
 li{margin-top: 20px;}
 html{
+    background-image: url('fundo.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
     background-color: SkyBlue;
     font-size:large;
 }

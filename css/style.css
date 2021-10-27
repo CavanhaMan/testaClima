@@ -29,6 +29,10 @@ ul {
 }
 li{margin-top: 20px;}
 html{
+    background-image: url('../img/fundo.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
     background-color: SkyBlue;
     font-size:large;
 }
