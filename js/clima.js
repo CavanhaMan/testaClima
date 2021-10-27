@@ -1,11 +1,15 @@
 $("#tabela").hide();
 $("#figurinha").hide();
+var chaveD;
 
 var lati;
 var longi;
 var cidade;
 var api_call;
 function get () {
+	jQuery.get('darksky.key', function(chaveD) { 
+		console.log("chaveD = " + typeof(chaveD));
+
 	lati = sessionStorage.getItem("pegaLat"),
   	longi = sessionStorage.getItem("pegaLong");
 	cidade = JSON.parse(sessionStorage.getItem("pegaCid"));
@@ -13,13 +17,12 @@ function get () {
   	console.log(longi);
 	console.log(cidade);
 
-var apiKey = '8eeafa93fa171bb970bfac9b03caa3a3',
 	url = 'https://api.darksky.net/forecast/',
 	//lati = "-18.9127749",
 	//longi = "-48.2755227",
 	opcoes = "?exclude=minutely,hourly,daily,flags,alerts";
 
-api_call = url + apiKey + "/" + lati + "," + longi + opcoes;
+api_call = url + chaveD + "/" + lati + "," + longi + opcoes;
 
 //$.get("https://api.darksky.net/forecast/8eeafa93fa171bb970bfac9b03caa3a3/-18.9127749,-48.2755227?exclude=minutely,hourly,daily,flags,alerts", function( data ) {
 $.get(api_call, function (data) {
@@ -109,6 +112,8 @@ $.get(api_call, function (data) {
 });
 $("#tabela").show();
 $("#figurinha").show();
+
+});
 
 }
 

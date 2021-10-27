@@ -1,17 +1,15 @@
 var latitude;
 var longitude;
-var CHAVE;
+var chaveG;
 // =================================================
 // PARTE DO GOOGLE:
 function insertGoogleScript() {
 	//A chave do google foi armazenada em um arquivo local 'google.key'
 	//Este arquivo foi incluido no .gitignore para não ser enviado para o github
-	jQuery.get('google.key', function(CHAVE) { 
-		console.log(CHAVE);
-		console.log("chave = " + typeof(CHAVE));
+	jQuery.get('google.key', function(chaveG) { 
+		console.log("chaveG = " + typeof(chaveG));
 	
-		var google_api = document.createElement('script'),
-			api_key = CHAVE;
+		var google_api = document.createElement('script'), api_key = chaveG;
 		// Inject the script for Google's API and reference the initGoogleAPI
 		// function as a callback.
 		google_api.src = 'https://maps.googleapis.com/maps/api/js?key=' + api_key + '&callback=initGoogleAPI&libraries=places,geometry';
