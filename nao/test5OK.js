@@ -1,12 +1,11 @@
-$("#tabela").hide();
-$("#figurinha").hide();
-var chaveD;
+//$.get("https://api.darksky.net/forecast/8eeafa93fa171bb970bfac9b03caa3a3/-18.9127749,-48.2755227?exclude=minutely,hourly,daily,flags,alerts", function( data ) {
+/*var chaveD;
 var lati;
 var longi;
 var cidade;
 var api_call;
 function get () {
-	jQuery.get('darksky.key', function(chaveD) { 
+/*	jQuery.get('darksky.key', function(chaveD) { 
 		console.log("chaveD = " + typeof(chaveD));
 
 	lati = sessionStorage.getItem("pegaLat"),
@@ -17,15 +16,16 @@ function get () {
 	console.log(cidade);
 
 	url = 'https://api.darksky.net/forecast/',
-	//lati = "-18.9127749",
-	//longi = "-48.2755227",
+	lati = "-18.9127749",
+	longi = "-48.2755227",
 	opcoes = "?exclude=minutely,hourly,daily,flags,alerts";
 
-api_call = url + chaveD + "/" + lati + "," + longi + opcoes;
+	api_call = url + chaveD + "/" + lati + "," + longi + opcoes;*/
 
-//$.get("https://api.darksky.net/forecast/8eeafa93fa171bb970bfac9b03caa3a3/-18.9127749,-48.2755227?exclude=minutely,hourly,daily,flags,alerts", function( data ) {
-$.get(api_call, function (data) {
+$.get("https://api.darksky.net/forecast/8eeafa93fa171bb970bfac9b03caa3a3/-18.9127749,-48.2755227?exclude=minutely,hourly,daily,flags,alerts", function( data ) {
+//$.get(api_call, function (data) {
 	var clima = data;
+
 	//console.log( data ); // HTML content of the jQuery.ajax page
 	//console.log( clima );
 
@@ -33,8 +33,7 @@ $.get(api_call, function (data) {
 	get_icon(icone);
 	//icon.innerHTML = get_icon(icone);
 	//icon.innerHTML = data.currently.icon;
-	//c1.innerHTML = data.timezone.split("/")[1];
-	c1.innerHTML = cidade;
+	c1.innerHTML = data.timezone.split("/")[1];
 	c2.innerHTML = data.latitude;
 	c3.innerHTML = data.longitude;
 	//c4.innerHTML = new Date(data.currently.time * 1000).toISOString().slice(0, 19).replace('T', ' ');
@@ -133,11 +132,7 @@ $.get(api_call, function (data) {
 		}
 	}
   });
-  $("#tabela").show();
-  $("#figurinha").show();
-});
 
-}
 
 /*
 E leste
