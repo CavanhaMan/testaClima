@@ -10,6 +10,7 @@ var latlng;
 jQuery.get('google.key', function (chaveG) {
 	console.log("chaveG = " + typeof (chaveG));
 	var google_api = document.createElement('script'), api_key = chaveG;
+	
 	// Inject the script for Google's API and reference the initGoogleAPI
 	// function as a callback.
   	google_api.src = 'https://maps.googleapis.com/maps/api/js?key=' + api_key + '&callback=initGoogleAPI&libraries=places,geometry';
@@ -31,13 +32,13 @@ $("#usarLocal").click(function() {
     /* Get the current user's location information, based on the coordinates provided by their browser */
     /* Fetching coordinates requires the user to be accessing your page over HTTPS and to allow the location prompt. */
     reverseGeocoder.getClientLocation(function(result) {
-    	console.log("1) ")
+    	console.log("Free Reverse Geocode API:")
         console.log(result);
-        saida.innerHTML="Você está aqui:" +
+        saida.innerHTML="Sua localização atual:" +
 		"<br>Latitude: " + result.latitude +
         "<br>Longitude: " + result.longitude +
         "<br>Cidade: " + result.city +
-        "<br>Estado: " + result.principalSubdivision;
+        "<br>Estado: " + result.principalSubdivision +
         "<br>País: " + result.countryName;
 	});
 /*****************************************************************/
@@ -59,7 +60,12 @@ function initGoogleAPI() {
 }
 
 function usarLocalAtual(){
-
+	latitude = place.geometry.location.lat();
+	console.log("A= " + latitude);
+	longitude = place.geometry.location.lng();
+	console.log("A= " + longitude);
+	sessionStorage.setItem("pegaLat", latitude);
+	sessionStorage.setItem("pegaLong", longitude);
 }
 //insertGoogleScript();
 

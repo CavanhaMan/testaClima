@@ -9,6 +9,9 @@ function get() {
 	jQuery.get('darksky.key', function (chaveD) {
 		console.log("chaveD = " + typeof (chaveD));
 
+		//Limpa o textbox do campo de pesquisa
+		$("#city-search").val("");
+
 		lati = sessionStorage.getItem("pegaLat"),
 			longi = sessionStorage.getItem("pegaLong");
 		cidade = JSON.parse(sessionStorage.getItem("pegaCid"));
@@ -25,6 +28,7 @@ function get() {
 
 		//$.get("https://api.darksky.net/forecast/8eeafa93fa171bb970bfac9b03caa3a3/-18.9127749,-48.2755227?exclude=minutely,hourly,daily,flags,alerts", function( data ) {
 		$.get(api_call, function (data) {
+
 			var clima = data;
 			//console.log( data ); // HTML content of the jQuery.ajax page
 			//console.log( clima );
