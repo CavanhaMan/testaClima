@@ -8,8 +8,7 @@ const Http = new XMLHttpRequest();
 function getLocation() {
 	console.log("getLocation Called");
     var bdcApi = "https://api.bigdatacloud.net/data/reverse-geocode-client"
-    reverseGeocoder.localityLanguage='pt';
-
+    
     navigator.geolocation.getCurrentPosition(
 		(position) => {
 			bdcApi = bdcApi
@@ -40,9 +39,6 @@ function getApi(bdcApi) {
     Http.onreadystatechange = function () {
 		if (this.readyState == 4 && this.status == 200){
 			result.innerHTML = this.responseText;
-            saida.innerHTML="Latitude: " + latitude +
-                            "<br>Longitude: " + longitude +
-                            "<br>Cidade: " + bdcApi.city;
         }
     };
 }
