@@ -15,6 +15,12 @@ jQuery.get('google.key', function (chaveG) {
   	google_api.src = 'https://maps.googleapis.com/maps/api/js?key=' + api_key + '&callback=initGoogleAPI&libraries=places,geometry';
 	document.body.appendChild(google_api);
 });
+
+//ativa-desativa botão ok de acordo com o checkbox:
+$("#usarLocal").click(function() {
+    $("#localOk").attr("disabled", !this.checked);
+  });
+
 // =======================================================================
 //FREE REVERSE GEOCODING API
 //<script src="https://cdn.jsdelivr.net/gh/bigdatacloudapi/js-reverse-geocode-client@latest/bigdatacloud_reverse_geocode.min.js" type="text/javascript"></script>
@@ -27,7 +33,8 @@ jQuery.get('google.key', function (chaveG) {
     reverseGeocoder.getClientLocation(function(result) {
     	console.log("1) ")
         console.log(result);
-        saida.innerHTML="Latitude: " + result.latitude +
+        saida.innerHTML="Você está aqui:" +
+		"<br>Latitude: " + result.latitude +
         "<br>Longitude: " + result.longitude +
         "<br>Cidade: " + result.city +
         "<br>Estado: " + result.principalSubdivision;
@@ -50,19 +57,10 @@ function initGoogleAPI() {
 		sessionStorage.setItem("pegaCid", JSON.stringify($('#city-search').val()));
 	});
 }
-/*
-	$("#saida").innerHTML="
-		Você está aqui ó:
-		<br>Latitude: " + latitude +
-		"<br>Longitude: " + longitude +
-		"<br>Local: " + $('#city-search').val();
 
-	var x=document.getElementById("saida");
-	x.innerHTML="Latitude: " + latitude +
-	"<br>Longitude: " + longitude +
-	"<br>Local: " + $('#city-search').val();
- */
+function usarLocalAtual(){
 
+}
 //insertGoogleScript();
 
 //location.href = "tela_clima.html";
