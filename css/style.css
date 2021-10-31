@@ -18,8 +18,8 @@ legend{
     border: 1px solid white;
     text-align: center;
 }
-button{
-    margin-left: 140px;
+#obterClima{
+    margin-left: 5px;
     margin-top: 5px;
     margin-bottom: 15px;
 }

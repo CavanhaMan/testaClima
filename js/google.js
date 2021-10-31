@@ -32,6 +32,14 @@ function initGoogleAPI() {
 		sessionStorage.setItem("pegaCid", JSON.stringify($('#city-search').val()));
 	});
 }
+/*
+var x=document.getElementById("saida");
+function showPosition(position){
+	x.innerHTML="Latitude: " + latitude + 
+	"<br>Longitude: " + longitude +
+	"<br>Local: " + $('#city-search').val();
+	}
+ */ 
 
 insertGoogleScript();
 
