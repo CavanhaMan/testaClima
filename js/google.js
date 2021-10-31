@@ -6,9 +6,9 @@ var chaveG;
 function insertGoogleScript() {
 	//A chave do google foi armazenada em um arquivo local 'google.key'
 	//Este arquivo foi incluido no .gitignore para não ser enviado para o github
-	jQuery.get('google.key', function(chaveG) { 
-		console.log("chaveG = " + typeof(chaveG));
-	
+	jQuery.get('google.key', function (chaveG) {
+		console.log("chaveG = " + typeof (chaveG));
+
 		var google_api = document.createElement('script'), api_key = chaveG;
 		// Inject the script for Google's API and reference the initGoogleAPI
 		// function as a callback.
@@ -23,9 +23,9 @@ function initGoogleAPI() {
 	autocomplete.addListener('places_changed', function () {
 		var place = autocomplete.getPlaces()[0];
 		latitude = place.geometry.location.lat();
-		console.log("A= "+latitude);
+		console.log("A= " + latitude);
 		longitude = place.geometry.location.lng();
-		console.log("A= "+longitude);
+		console.log("A= " + longitude);
 		sessionStorage.setItem("pegaLat", latitude);
 		sessionStorage.setItem("pegaLong", longitude);
 		console.log($('#city-search').val());
