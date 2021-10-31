@@ -17,19 +17,23 @@ jQuery.get('google.key', function (chaveG) {
 });
 // =======================================================================
 //FREE REVERSE GEOCODING API
-var reverse_api = document.createElement('script');
-reverse_api.src="https://cdn.jsdelivr.net/gh/bigdatacloudapi/js-reverse-geocode-client@latest/bigdatacloud_reverse_geocode.min.js"
-document.body.appendChild(reverse_api);
-
-var reverseGeocoder=new BDCReverseGeocode();
-reverseGeocoder.localityLanguage='pt';
-/* Get the administrative location information using a set of known coordinates */
-reverseGeocoder.getClientLocation(function(result) {
-	console.log(result);
-	saida.innerHTML=result.city;      
-});
+//<script src="https://cdn.jsdelivr.net/gh/bigdatacloudapi/js-reverse-geocode-client@latest/bigdatacloud_reverse_geocode.min.js" type="text/javascript"></script>
+    /* Initialise Reverse Geocode API Client */
+    var reverseGeocoder=new BDCReverseGeocode();
+	/* You can also set the locality language as needed */
+    reverseGeocoder.localityLanguage='pt';
+    /* Get the current user's location information, based on the coordinates provided by their browser */
+    /* Fetching coordinates requires the user to be accessing your page over HTTPS and to allow the location prompt. */
+    reverseGeocoder.getClientLocation(function(result) {
+    	console.log("1) ")
+        console.log(result);
+        saida.innerHTML="Latitude: " + result.latitude +
+        "<br>Longitude: " + result.longitude +
+        "<br>Cidade: " + result.city +
+        "<br>Estado: " + result.principalSubdivision;
+        "<br>País: " + result.countryName;
+	});
 /*****************************************************************/
-
 
 // SearchBox Method
 function initGoogleAPI() {
