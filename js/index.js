@@ -25,10 +25,22 @@ jQuery.get('google.key', function (chaveG) {
 	document.body.appendChild(google_api);
 });
 
-//ativa-desativa botão ok de acordo com o checkbox:
+//ativa-desativa botão OK de acordo com o checkbox:
 $("#usarLocal").click(function() {
     $("#localOk").attr("disabled", !this.checked);
   });
+
+//ativa-destiva botão OBTER CLIMA de acordo com textbox:
+$(function () {
+	$("#city-search").keyup(function () {
+		var btn = $("#obterClima");
+		if ($(this).val().trim() != "") {
+			btn.removeAttr("disabled");
+		} else {
+			btn.attr("disabled", "disabled");
+		}
+	});
+});
 
 // =======================================================================
 //FREE REVERSE GEOCODING API

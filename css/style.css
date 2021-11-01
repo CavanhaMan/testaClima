@@ -1,8 +1,3 @@
-table,td,tr{
-    border: 1px solid white;
-    border-collapse: collapse;
-    padding: 5px;
-}
 .wi {font-size: 100px;}
 #clima,#icon{text-align: center;}
 #icon{margin: 20px;}
@@ -78,7 +73,17 @@ h2{	margin: 5px 0px 0px 0px;}
 #figurinha,#localAtual{
     float: left;
 }
+hr{
+    margin-top: 300px;
+}
 /*==========================================*/
 .output{
     float: left;
+}
+#tabela{
+    padding: 20px;
+    background-color: #e6ffff;
+}
+.destaque{
+    font-size: x-large;
 }
