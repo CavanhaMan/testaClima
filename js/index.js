@@ -5,26 +5,95 @@ var lati;
 var longi;
 var cidade;
 var api_call;
+//_____________________________________________________________________
+var latitude;
+var longitude;
+var chaveG;
+var x = document.getElementById("saida");
+var result;
+
+// ===PARTE DO GOOGLE:====================================================
+//A chave do google foi armazenada em um arquivo local 'google.key'
+//Este arquivo foi incluido no .gitignore para não ser enviado para o github
+jQuery.get('google.key', function (chaveG) {
+	console.log("chaveG = " + typeof (chaveG));
+	var google_api = document.createElement('script'), api_key = chaveG;
+	
+	// Inject the script for Google's API and reference the initGoogleAPI
+	// function as a callback.
+  	google_api.src = 'https://maps.googleapis.com/maps/api/js?key=' + api_key + '&callback=initGoogleAPI&libraries=places,geometry';
+	document.body.appendChild(google_api);
+});
+
+//ativa-desativa botão ok de acordo com o checkbox:
+$("#usarLocal").click(function() {
+    $("#localOk").attr("disabled", !this.checked);
+  });
+
+// =======================================================================
+//FREE REVERSE GEOCODING API
+//<script src="https://cdn.jsdelivr.net/gh/bigdatacloudapi/js-reverse-geocode-client@latest/bigdatacloud_reverse_geocode.min.js" type="text/javascript"></script>
+function geoCode(){
+	/* Initialise Reverse Geocode API Client */
+    var reverseGeocoder=new BDCReverseGeocode();
+	/* You can also set the locality language as needed */
+    reverseGeocoder.localityLanguage='pt';
+    /* Get the current user's location information, based on the coordinates provided by their browser */
+    /* Fetching coordinates requires the user to be accessing your page over HTTPS and to allow the location prompt. */
+    reverseGeocoder.getClientLocation(function(result) {
+    	console.log("Free Reverse Geocode API:")
+        console.log(result);
+        saida.innerHTML="Sua localização atual:" +
+		"<br>Latitude: " + result.latitude +
+        "<br>Longitude: " + result.longitude +
+        "<br>Cidade: " + result.city +
+        "<br>Estado: " + result.principalSubdivision +
+        "<br>País: " + result.countryName;
+		latitude = result.latitude;
+		longitude = result.longitude;
+		cidade = result.city;
+	});
+}
+/*****************************************************************/
+//function geoCode();
+
+// SearchBox Method
+function initGoogleAPI() {
+	var autocomplete = new google.maps.places.SearchBox(document.querySelector("#city-search"));
+	autocomplete.addListener('places_changed', function () {
+		var place = autocomplete.getPlaces()[0];
+		latitude = place.geometry.location.lat();
+		console.log("A= " + latitude);
+		longitude = place.geometry.location.lng();
+		console.log("A= " + longitude);
+		cidade=$('#city-search').val();
+		console.log(cidade);
+	});
+}
+
+//_____________________________________________________________________
+$("#usarLocal").on('change', function () {
+	if ($(this).prop('checked')) 
+		geoCode();
+});
+
 function get() {
 	jQuery.get('darksky.key', function (chaveD) {
 		console.log("chaveD = " + typeof (chaveD));
 
+		//Desmarca usar a localização atual
+		$("#usarLocal").prop("checked", false);
+		//Desabilita o botão ok
+		$("#localOk").attr("disabled", true);
 		//Limpa o textbox do campo de pesquisa
 		$("#city-search").val("");
 
-		lati = sessionStorage.getItem("pegaLat"),
-			longi = sessionStorage.getItem("pegaLong");
-		cidade = JSON.parse(sessionStorage.getItem("pegaCid"));
-		console.log(lati);
-		console.log(longi);
-		console.log(cidade);
+        url = 'https://api.darksky.net/forecast/',
+		//lati = "-18.923519134521484",
+		//longi = "-48.26726150512695",
+		opcoes = "?exclude=minutely,hourly,daily,flags,alerts";
 
-		url = 'https://api.darksky.net/forecast/',
-			//lati = "-18.9127749",
-			//longi = "-48.2755227",
-			opcoes = "?exclude=minutely,hourly,daily,flags,alerts";
-
-		api_call = url + chaveD + "/" + lati + "," + longi + opcoes;
+		api_call = url + chaveD + "/" + latitude + "," + longitude + opcoes;
 
 		//$.get("https://api.darksky.net/forecast/8eeafa93fa171bb970bfac9b03caa3a3/-18.9127749,-48.2755227?exclude=minutely,hourly,daily,flags,alerts", function( data ) {
 		$.get(api_call, function (data) {
@@ -142,22 +211,3 @@ function get() {
 	});
 
 }
-
-/*
-E leste
-N norte
-W oeste
-S sul
-NE nordeste
-NW noroeste
-SE sudeste
-SW sudoeste
-ENE les–nordeste
-ESE les–sudeste
-SSE sul-sudeste
-NNE nor-nordeste
-NNW nor-noroeste
-SSW sul-sudoeste
-WSW oés-sudoeste
-WNW oés-noroeste
-*/
