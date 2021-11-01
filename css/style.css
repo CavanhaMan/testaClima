@@ -4,13 +4,6 @@ table,td,tr{
     padding: 5px;
 }
 .wi {font-size: 100px;}
-#figurinha{
-    position: absolute;
-    left: 580px;
-    padding: 10px;
-    border: 1px solid white;
-    border-radius:5px;
-}
 #clima,#icon{text-align: center;}
 #icon{margin: 20px;}
 #logo{width: 800px;}
@@ -36,17 +29,11 @@ html{
     background-color: SkyBlue;
     font-size:large;
 }
-iframe{
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 /*==========================================*/
 .center{
 	border: 7px ridge #ccc;
 	background: #e6ffff;
-	width:360px;
+	width:400px;
 	border-radius: 0px 0px 20px 20px;
 }
 .titulo{
@@ -60,14 +47,34 @@ h2{	margin: 5px 0px 0px 0px;}
     float:left;
 	margin: 10px;
 }
-.campo{width: 200px;}
-.col1{
-    width:100px;
-	text-align:right;
-}
 .pointer {cursor: pointer;}
-#titu{
+.titu{
     font-size:larger;
-    margin-top: 30px;
     text-align: center;
+    font-weight: bold;
+}
+.city{
+    font-size: x-large;
+    margin: 0px 0px 0px 20px;
+    font-weight: bold;
+}
+#city-search{
+    font-size:larger;
+    width: 300px;
+    border-radius: 5px;
+}
+#obterClima{
+    font-size:larger;
+    border-radius: 5px;
+}
+.dados{
+    padding-top: -20px;
+    padding-bottom: -20px;
+}
+#saida{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+#figurinha,#localAtual{
+    float: left;
 }

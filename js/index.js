@@ -43,12 +43,11 @@ function geoCode(){
     reverseGeocoder.getClientLocation(function(result) {
     	console.log("Free Reverse Geocode API:")
         console.log(result);
-        saida.innerHTML="Sua localização atual:" +
-		"<br>Latitude: " + result.latitude +
+        saida.innerHTML="Latitude: " + result.latitude +
         "<br>Longitude: " + result.longitude +
         "<br>Cidade: " + result.city +
-        "<br>Estado: " + result.principalSubdivision +
-        "<br>País: " + result.countryName;
+        " - " + result.principalSubdivision +
+        " - " + result.countryName;
 		latitude = result.latitude;
 		longitude = result.longitude;
 		cidade = result.city;
