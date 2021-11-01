@@ -78,3 +78,7 @@ h2{	margin: 5px 0px 0px 0px;}
 #figurinha,#localAtual{
     float: left;
 }
+/*==========================================*/
+.output{
+    float: left;
+}

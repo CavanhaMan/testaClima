@@ -19,7 +19,7 @@
 			<input type="text" id="city-search" placeholder="Ex.: Uberlândia">
 		</form>
 		<BR>
-		<div id="localAtual">
+		<div class="output" id="localAtual">
 			<fieldset class="center titulo">
 			<label class="titu" for="usarLocal">Quer usar a sua localização atual?</label>
 			<input type="checkbox" id="usarLocal" class="pointer" name="usarLocal" value="1">
@@ -29,7 +29,7 @@
 				<p id="saida"></p>
 			</fieldset>
 		</div>
-		<div id="figurinha">
+		<div class="output" id="figurinha">
 			<fieldset class="center titulo">
 				<div class="titu" id="clima"></div>
 			</fieldset>
@@ -43,30 +43,28 @@
 
 	<hr>
 	<!-------------------------------------------------------------------->
-
-	<table id="tabela">
-		<tr><td id="c4" colspan="2">?</td></tr>
-		<tr><td>Local:</td><td id="c1">?</td></tr>
-		<tr><td>Latitude:</td><td id="c2">?</td></tr>
-		<tr><td>Longitude:</td><td id="c3">?</td></tr>
-		<tr><td>Fuso horário:</td><td id="c20">?</td></tr>
-		<tr><td>Resumo:</td><td id="c5">?</td></tr>
-		<tr><td>Intensidade de precipitação:</td><td id="c6">?</td></tr>
-		<tr><td>Probabilidade de precipitação:</td><td id="c7">?</td></tr>
-		<tr><td>Temperatura:</td><td id="c8">?</td></tr>
-		<tr><td>Sensação térmica:</td><td id="c9">?</td></tr>
-		<tr><td>Ponto de orvalho:</td><td id="c10">?</td></tr>
-		<tr><td>Umidade:</td><td id="c11">?</td></tr>
-		<tr><td>Pressão:</td><td id="c12">?</td></tr>
-		<tr><td>Velocidade do vento:</td><td id="c13">?</td></tr>
-		<tr><td>Rajada de vento:</td><td id="c14">?</td></tr>
-		<tr><td>Direção do vento:</td><td id="c15">?</td></tr>
-		<tr><td>Cobertura de nuvens:</td><td id="c16">?</td></tr>
-		<tr><td>Índice UV:</td><td id="c17">?</td></tr>
-		<tr><td>Visibilidade:</td><td id="c18">?</td></tr>
-		<tr><td>Ozônio:</td><td id="c19">?</td></tr>
-	</table>
-
+	<div><!-- id="tabela"-->
+		<div id="c4">?</div>
+		<div class="output">Local: </div><div class="output" id="c1">?</div><BR>
+		<div class="output">Latitude: </div><div class="output" id="c2">?</div><BR>
+		<div class="output">Longitude: </div><div class="output" id="c3">?</div><BR>
+		<div class="output">Fuso horário: </div><div class="output" id="c20">?</div><BR>
+		<div class="output">Resumo: </div><div class="output" id="c5">?</div><BR>
+		<div class="output">Intensidade de precipitação: </div><div class="output" id="c6">?</div><BR>
+		<div class="output">Probabilidade de precipitação: </div><div class="output" id="c7">?</div><BR>
+		<div class="output">Temperatura: </div><div class="output" id="c8">?</div><BR>
+		<div class="output">Sensação térmica: </div><div class="output" id="c9">?</div><BR>
+		<div class="output">Ponto de orvalho: </div><div class="output" id="c10">?</div><BR>
+		<div class="output">Umidade: </div><div class="output" id="c11">?</div><BR>
+		<div class="output">Pressão: </div><div class="output" id="c12">?</div><BR>
+		<div class="output">Velocidade do vento: </div><div class="output" id="c13">?</div><BR>
+		<div class="output">Rajada de vento: </div><div class="output" id="c14">?</div><BR>
+		<div class="output">Direção do vento: </div><div class="output" id="c15">?</div><BR>
+		<div class="output">Cobertura de nuvens: </div><div class="output" id="c16">?</div><BR>
+		<div class="output">Índice UV: </div><div class="output" id="c17">?</div><BR>
+		<div class="output">Visibilidade: </div><div class="output" id="c18">?</div><BR>
+		<div class="output">Ozônio: </div><div class="output" id="c19">?</div><BR>
+	</div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js'></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
