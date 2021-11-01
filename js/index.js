@@ -55,7 +55,7 @@ function geoCode(){
 	});
 }
 /*****************************************************************/
-//function geoCode();
+geoCode();
 
 // SearchBox Method
 function initGoogleAPI() {

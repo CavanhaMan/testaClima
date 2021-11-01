@@ -42,3 +42,32 @@ iframe{
     width: 100%;
     height: 100%;
 }
+/*==========================================*/
+.center{
+	border: 7px ridge #ccc;
+	background: #e6ffff;
+	width:360px;
+	border-radius: 0px 0px 20px 20px;
+}
+.titulo{
+	background: #ccc;
+	height: 25px;
+	border-radius: 20px 20px 0px 0px;
+}
+h2{	margin: 5px 0px 0px 0px;}
+.col2{width:180px;}
+.colunas{
+    float:left;
+	margin: 10px;
+}
+.campo{width: 200px;}
+.col1{
+    width:100px;
+	text-align:right;
+}
+.pointer {cursor: pointer;}
+#titu{
+    font-size:larger;
+    margin-top: 30px;
+    text-align: center;
+}

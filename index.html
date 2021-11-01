@@ -18,11 +18,15 @@
 			<input type="text" id="city-search" placeholder="Ex.: Uberlândia">
 		</form>
 		<BR>
-		<label for="usarLocal">Quer usar a sua localização atual?</label>
-		<input type="checkbox" id="usarLocal" name="usarLocal" value="1">
-		<button onclick="get()" id="localOk" disabled>Ok</button>
-		
-		<p id="saida"></p>
+		<fieldset class="center titulo">
+			<label id="titu" for="usarLocal">Quer usar a sua localização atual?</label>
+			<input type="checkbox" id="usarLocal" name="usarLocal" value="1">
+			<button onclick="get()" id="localOk" disabled>Ok</button>
+		</fieldset>
+		<fieldset class="center">
+			<p id="saida"></p>
+		</fieldset>
+				
 		<BR>
 	</div>
 
