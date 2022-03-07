@@ -21,6 +21,7 @@ jQuery.get('google.key', function (chaveG) {
 	
 	// Inject the script for Google's API and reference the initGoogleAPI
 	// function as a callback.
+	//google_api.src = 'https://maps.googleapis.com/maps/api/js?key=' + api_key + '&callback=initMap';
   	google_api.src = 'https://maps.googleapis.com/maps/api/js?key=' + api_key + '&callback=initGoogleAPI&libraries=places,geometry';
 	document.body.appendChild(google_api);
 });
